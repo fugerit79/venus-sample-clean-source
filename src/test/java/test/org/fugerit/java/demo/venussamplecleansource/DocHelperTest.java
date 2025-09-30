@@ -35,7 +35,7 @@ import lombok.AllArgsConstructor;
 class DocHelperTest {
 
     @Test
-    void testDocProcess() {
+    void testDocProcess() throws Exception {
         try ( ByteArrayOutputStream baos = new ByteArrayOutputStream() ) {
             // creates the doc helper
             DocHelper docHelper = new DocHelper();
@@ -51,8 +51,6 @@ class DocHelperTest {
             // print the output
             log.info( "html output : \n{}", new String( baos.toByteArray(), StandardCharsets.UTF_8 ) );
             Assertions.assertNotEquals( 0, baos.size() );
-        } catch (Exception e) {
-            log.error( String.format( "Error : %s", e.toString() ), e );
         }
     }
 
